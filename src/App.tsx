@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Profile from './components/Profile';
+import "./App.css";
 
 function App() {
+  const tasks = ['Learn React', 'Build an App', 'Enjoy Coding'];
+  const age = 18;
+  const name = 'Cao Hai';
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>My To-Do List</h1>
+      <div>{name} - {age}</div>
+      <div>{tasks}</div>
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+      <Profile />
     </div>
   );
 }
