@@ -1,23 +1,21 @@
 import React from 'react';
-import Profile from './components/Profile';
+import TodoList from './components/To_do_list';
 import "./App.css";
 
 function App() {
-  const tasks = ['Learn React', 'Build an App', 'Enjoy Coding'];
-  const age = 18;
-  const name = 'Cao Hai';
-
   return (
-    <div>
-      <h1>My To-Do List</h1>
-      <div>{name} - {age}</div>
-      <div>{tasks}</div>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </ul>
-      <Profile />
+    <div className='container'>
+        <div className='title'>
+          <h1>ToDo List</h1>
+        </div>
+          <div className='main-content'>
+            <div className='add-todo'>
+              <button className='add-button'>Add Todo</button>
+            </div>
+            <div>
+              <TodoList />
+            </div>
+      </div>
     </div>
   );
 }
