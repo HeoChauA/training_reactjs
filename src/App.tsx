@@ -1,25 +1,20 @@
+// src/App.tsx
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Profile from './components/Profile';
 import "./App.css";
 
-function App() {
-  const tasks = ['Learn React', 'Build an App', 'Enjoy Coding'];
-  const age = 18;
-  const name = 'Cao Hai';
-
+const App: React.FC = () => {
   return (
-    <div>
-      <h1>My To-Do List</h1>
-      <div>{name} - {age}</div>
-      <div>{tasks}</div>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </ul>
-      <Profile />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/profile" element={<Profile name="Nguyễn Văn A" age={25} location="Hà Nội, Việt Nam" />} />
+          <Route path="/" element={<h1>Trang chủ</h1>} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
