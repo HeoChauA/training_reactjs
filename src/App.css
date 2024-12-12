@@ -77,6 +77,10 @@ h1 {
 .todo-item h3 {
   margin: 0;
   color: #333;
+
+  &.completed {
+    text-decoration: line-through;
+  }
 }
 
 .todo-item p {

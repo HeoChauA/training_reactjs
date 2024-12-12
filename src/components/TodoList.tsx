@@ -1,47 +1,17 @@
-const todos = [
-  {
-    title: "Todo title 1",
-    desc: "Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero, non adipiscing dolor urna a orci. Fusce fermentum. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Suspendisse feugiat."
-  },
-  {
-    title: "Todo title 2",
-    desc: "Praesent nec nisl a purus blandit viverra. Maecenas vestibulum mollis diam. In consectetuer turpis ut velit. Sed in libero ut nibh placerat accumsan. Integer tincidunt."
-  },
-  {
-    title: "Todo title 3",
-    desc: "Vivamus in erat ut urna cursus vestibulum. Vestibulum suscipit nulla quis orci. Donec venenatis vulputate lorem. Vivamus euismod mauris. Fusce vel dui."
-  },
-  {
-    title: "Todo title 4",
-    desc: "Donec vitae sapien ut libero venenatis faucibus. Vivamus elementum semper nisi. Aliquam erat volutpat. Suspendisse feugiat. In hac habitasse platea dictumst."
-  },
-  {
-    title: "Todo title 5",
-    desc: " Donec posuere vulputate arcu. Suspendisse feugiat. Nulla sit amet est. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo."
-  }
-];
+import TodoItem from "./TodoItem";
+import { Todo } from "./Types";
 
+interface TodoListProps {
+  todos: Todo[],
+}
 
-function TodoList() {
+function TodoList({todos}: TodoListProps) {
   return (
     <>
     <ul className="todo-list">
-      {todos.map((todo, index) => (
-        <li key={index} className="todo-item">
-          <div className="todo-item-left">
-            <h3>{todo.title}</h3>
-            <p>{todo.desc.length > 100 ? todo.desc.slice(0, 100) + "..." : todo.desc}</p>
-          </div>
-          <div className="todo-item-right">
-            <ul className="todo-actions">
-              <li>marked</li>
-              <li>edit</li>
-              <li>delete</li>
-              <li>view</li>
-            </ul>
-          </div>
-        </li>
-      ))}
+    {todos.map((todo, index) => (
+      <TodoItem key={index} todo={todo} />
+    ))}
     </ul>
     </>
   );
