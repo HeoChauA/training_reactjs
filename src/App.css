@@ -48,3 +48,55 @@
     font-weight: 900;
   }
 }
+
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  padding-block: 15px;
+}
+
+.todo-list {
+  margin-top: 20px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.todo-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.todo-item h3 {
+  margin: 0;
+  color: #333;
+
+  &.completed {
+    text-decoration: line-through;
+  }
+}
+
+.todo-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+.todo-actions {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-content: stretch;
+  align-items: flex-start;
+  gap: 5px;
+  font-size: 12px;
+}
