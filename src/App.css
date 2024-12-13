@@ -48,3 +48,119 @@
     font-weight: 900;
   }
 }
+
+.main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.todos {
+  flex-grow: 1;
+  background-color: #F5F5E9;
+
+  .todos__button {
+    background-color: green;
+    padding: 16px;
+    display: inline-block;
+    border: 1px solid green;
+    box-shadow: none;
+    outline: none;
+    appearance: none;
+    border-radius: 5px;
+    margin: 16px 0;
+    color: white;
+    font-weight: bold;
+  }
+
+  ul {
+    li {
+      border-radius: 5px;
+      display: flex;
+      background-color: white;
+      padding: 16px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &.green-bg {
+        background-color: green;
+        color: white;
+        
+        svg {
+          fill: white;
+          color: white
+        }
+      }
+    }
+  }
+
+  .todo-title,
+  .todo-desc {
+    margin-top: 0;
+  }
+
+  .todo-desc {
+    margin-bottom: 0;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .todo-actions {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    gap: 10px;
+    
+    button {
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        svg {
+          color: green;
+        }
+      }
+
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+header {
+  background-color: #F5F5E9;
+  
+  .navigation {
+    padding: 10px 0;
+
+    li {
+      display: inline-block;
+
+      a {
+        padding: 10px;
+        display: block;
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
