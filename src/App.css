@@ -122,3 +122,15 @@ h1 {
   background-color: inherit;
   font-size: 16px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
+
+.incomplete {
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
