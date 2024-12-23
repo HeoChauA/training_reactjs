@@ -1,9 +1,11 @@
 import React from 'react';
 import { Routes, Route, Link } from "react-router";
-import HomePage from './components/Pages/Home'
-import ProfilePage from './components/Pages/Profile'
+import HomePage from './components/Pages/Home';
+import ProfilePage from './components/Pages/Profile';
 import TodoList from './components/TodoList';
+import UseState from './components/State';
 import "./App.css";
+
 
 const todos = [
     {
@@ -37,11 +39,12 @@ function App() {
   return (
     <div className='container'>
       <nav className='center'>
-        <Link to="/">Home</Link> | <Link to="/profile">Profile</Link>
+        <Link to="/">Home</Link> | <Link to="/profile">Profile</Link> | <Link to="/state">Input</Link>
       </nav>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/state" element={<UseState />} />
       </Routes>
       <div>
         <div className='title'>
