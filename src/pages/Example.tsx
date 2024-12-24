@@ -67,6 +67,8 @@ function ExamplePage() {
     });
   }
 
+  window.addEventListener('resize', handleResize);
+
   /* Login Form */
   const [userName, setUserName] = useState<string>('');
   const [userPass, setUsePass] = useState<string>('');
@@ -89,11 +91,34 @@ function ExamplePage() {
   }
 
   /* Time Counter */
-  // const [isTime, setIsTime] = useState<number>(0);
+  const [seconds, setSeconds] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  const [timeRef, setTimeRef] = useState<any>();
 
-  // const handleTimeStartCounter = () => {
+  const startTime = () => {
+    setSeconds((s) => s + 1);
+  }
 
-  // }
+  const handleStart = () => {
+    if(!isRunning) {
+      setIsRunning(true)
+      setTimeRef(setInterval(startTime, 1000));
+    }
+    console.log(timeRef)
+  }
+
+  const handleStop = () => {
+    console.log(timeRef)
+    if(isRunning) {
+      setIsRunning(false);
+      clearInterval(timeRef as NodeJS.Timeout);
+    }
+  }
+
+  const handleReset = () => {
+    setIsRunning(false);
+    setSeconds(0);
+  }
 
   return (
     <>
@@ -145,10 +170,15 @@ function ExamplePage() {
     <br/>
     <br/>
     <h2>Time Counter</h2>
-    {/* <p>{isTime}</p>
-    <button onClick={handleTimeStartCounter}>Start</button>
-    <button onClick={handleTimePauseCounter}>Pause</button>
-    <button onClick={handleTimeResetCounter}>Reset</button> */}
+    <div style={{
+        border: '3px solid #333',
+        borderRadius: '3px',
+        padding: '20px',
+        textAlign: 'center'
+    }}>{seconds}</div>
+    <button onClick={handleStart}>Start</button>
+    <button onClick={handleStop}>Stop</button>
+    <button onClick={handleReset}>Reset</button>
     </>
   );
 }
